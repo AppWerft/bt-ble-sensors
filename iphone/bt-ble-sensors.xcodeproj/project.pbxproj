@@ -1,0 +1,714 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		24416B8111C4CA220047AFDD /* Build & Test */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */;
+			buildPhases = (
+				24416B8011C4CA220047AFDD /* ShellScript */,
+			);
+			dependencies = (
+				24416B8511C4CA280047AFDD /* PBXTargetDependency */,
+			);
+			name = "Build & Test";
+			productName = "Build & test";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		24DD6CF91134B3F500162E58 /* ComSwsSensorsBtBleModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* ComSwsSensorsBtBleModule.h */; };
+		24DD6CFA1134B3F500162E58 /* ComSwsSensorsBtBleModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* ComSwsSensorsBtBleModule.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		24DE9E1111C5FE74003F90F6 /* ComSwsSensorsBtBleModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* ComSwsSensorsBtBleModuleAssets.h */; };
+		24DE9E1211C5FE74003F90F6 /* ComSwsSensorsBtBleModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* ComSwsSensorsBtBleModuleAssets.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8A2EC3501A83544D00772EA6 /* DEACentralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC31A1A83544D00772EA6 /* DEACentralManager.h */; };
+		8A2EC3511A83544D00772EA6 /* DEACentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC31B1A83544D00772EA6 /* DEACentralManager.m */; };
+		8A2EC3521A83544D00772EA6 /* BLEHeartRate.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC31D1A83544D00772EA6 /* BLEHeartRate.h */; };
+		8A2EC3531A83544D00772EA6 /* BLEHeartRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC31E1A83544D00772EA6 /* BLEHeartRate.m */; };
+		8A2EC3541A83544D00772EA6 /* DEASensorTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3201A83544D00772EA6 /* DEASensorTag.h */; };
+		8A2EC3551A83544D00772EA6 /* DEASensorTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC3211A83544D00772EA6 /* DEASensorTag.m */; };
+		8A2EC3561A83544D00772EA6 /* DEAAccelerometerService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3231A83544D00772EA6 /* DEAAccelerometerService.h */; };
+		8A2EC3571A83544D00772EA6 /* DEAAccelerometerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC3241A83544D00772EA6 /* DEAAccelerometerService.m */; };
+		8A2EC3581A83544D00772EA6 /* DEABarometerService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3251A83544D00772EA6 /* DEABarometerService.h */; };
+		8A2EC3591A83544D00772EA6 /* DEABarometerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC3261A83544D00772EA6 /* DEABarometerService.m */; };
+		8A2EC35A1A83544D00772EA6 /* DEABaseService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3271A83544D00772EA6 /* DEABaseService.h */; };
+		8A2EC35B1A83544D00772EA6 /* DEABaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC3281A83544D00772EA6 /* DEABaseService.m */; };
+		8A2EC35C1A83544D00772EA6 /* DEAGyroscopeService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3291A83544D00772EA6 /* DEAGyroscopeService.h */; };
+		8A2EC35D1A83544D00772EA6 /* DEAGyroscopeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC32A1A83544D00772EA6 /* DEAGyroscopeService.m */; };
+		8A2EC35E1A83544D00772EA6 /* DEAHumidityService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC32B1A83544D00772EA6 /* DEAHumidityService.h */; };
+		8A2EC35F1A83544D00772EA6 /* DEAHumidityService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC32C1A83544D00772EA6 /* DEAHumidityService.m */; };
+		8A2EC3601A83544D00772EA6 /* DEAMagnetometerService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC32D1A83544D00772EA6 /* DEAMagnetometerService.h */; };
+		8A2EC3611A83544D00772EA6 /* DEAMagnetometerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC32E1A83544D00772EA6 /* DEAMagnetometerService.m */; };
+		8A2EC3621A83544D00772EA6 /* DEASimpleKeysService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC32F1A83544D00772EA6 /* DEASimpleKeysService.h */; };
+		8A2EC3631A83544D00772EA6 /* DEASimpleKeysService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC3301A83544D00772EA6 /* DEASimpleKeysService.m */; };
+		8A2EC3641A83544D00772EA6 /* DEATemperatureService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3311A83544D00772EA6 /* DEATemperatureService.h */; };
+		8A2EC3651A83544D00772EA6 /* DEATemperatureService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC3321A83544D00772EA6 /* DEATemperatureService.m */; };
+		8A2EC3661A83544D00772EA6 /* TISensorTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3331A83544D00772EA6 /* TISensorTag.h */; };
+		8A2EC3671A83544D00772EA6 /* BLEStandard.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3351A83544D00772EA6 /* BLEStandard.h */; };
+		8A2EC3681A83544D00772EA6 /* BLEBaseService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3371A83544D00772EA6 /* BLEBaseService.h */; };
+		8A2EC3691A83544D00772EA6 /* BLEBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC3381A83544D00772EA6 /* BLEBaseService.m */; };
+		8A2EC36A1A83544D00772EA6 /* BLEDeviceInfoService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3391A83544D00772EA6 /* BLEDeviceInfoService.h */; };
+		8A2EC36B1A83544D00772EA6 /* BLEDeviceInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC33A1A83544D00772EA6 /* BLEDeviceInfoService.m */; };
+		8A2EC36C1A83544D00772EA6 /* BLEHeartRateService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC33B1A83544D00772EA6 /* BLEHeartRateService.h */; };
+		8A2EC36D1A83544D00772EA6 /* BLEHeartRateService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC33C1A83544D00772EA6 /* BLEHeartRateService.m */; };
+		8A2EC36E1A83544D00772EA6 /* NSMutableArray+fifoQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC33E1A83544D00772EA6 /* NSMutableArray+fifoQueue.h */; };
+		8A2EC36F1A83544D00772EA6 /* NSMutableArray+fifoQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC33F1A83544D00772EA6 /* NSMutableArray+fifoQueue.m */; };
+		8A2EC3701A83544D00772EA6 /* YMS128.c in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC3401A83544D00772EA6 /* YMS128.c */; };
+		8A2EC3711A83544D00772EA6 /* YMS128.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3411A83544D00772EA6 /* YMS128.h */; };
+		8A2EC3721A83544D00772EA6 /* YMSCBCentralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3421A83544D00772EA6 /* YMSCBCentralManager.h */; };
+		8A2EC3731A83544D00772EA6 /* YMSCBCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC3431A83544D00772EA6 /* YMSCBCentralManager.m */; };
+		8A2EC3741A83544D00772EA6 /* YMSCBCharacteristic.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3441A83544D00772EA6 /* YMSCBCharacteristic.h */; };
+		8A2EC3751A83544D00772EA6 /* YMSCBCharacteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC3451A83544D00772EA6 /* YMSCBCharacteristic.m */; };
+		8A2EC3761A83544D00772EA6 /* YMSCBDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3461A83544D00772EA6 /* YMSCBDescriptor.h */; };
+		8A2EC3771A83544D00772EA6 /* YMSCBDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC3471A83544D00772EA6 /* YMSCBDescriptor.m */; };
+		8A2EC3781A83544D00772EA6 /* YMSCBPeripheral.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC3481A83544D00772EA6 /* YMSCBPeripheral.h */; };
+		8A2EC3791A83544D00772EA6 /* YMSCBPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC3491A83544D00772EA6 /* YMSCBPeripheral.m */; };
+		8A2EC37A1A83544D00772EA6 /* YMSCBService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC34A1A83544D00772EA6 /* YMSCBService.h */; };
+		8A2EC37B1A83544D00772EA6 /* YMSCBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC34B1A83544D00772EA6 /* YMSCBService.m */; };
+		8A2EC37C1A83544D00772EA6 /* YMSCBStoredPeripherals.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC34C1A83544D00772EA6 /* YMSCBStoredPeripherals.h */; };
+		8A2EC37D1A83544D00772EA6 /* YMSCBStoredPeripherals.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC34D1A83544D00772EA6 /* YMSCBStoredPeripherals.m */; };
+		8A2EC37E1A83544D00772EA6 /* YMSCBUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC34E1A83544D00772EA6 /* YMSCBUtils.h */; };
+		8A2EC37F1A83544D00772EA6 /* YMSCBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC34F1A83544D00772EA6 /* YMSCBUtils.m */; };
+		8A6E70EC1AC51CDA00120B2A /* BLEMultispread.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A6E70E71AC51CDA00120B2A /* BLEMultispread.h */; };
+		8A6E70ED1AC51CDA00120B2A /* BLEMultispread.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E70E81AC51CDA00120B2A /* BLEMultispread.m */; };
+		8A6E70EE1AC51CDA00120B2A /* BLESpreaderService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A6E70EA1AC51CDA00120B2A /* BLESpreaderService.h */; };
+		8A6E70EF1AC51CDA00120B2A /* BLESpreaderService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E70EB1AC51CDA00120B2A /* BLESpreaderService.m */; };
+		AA747D9F0F9514B9006C5449 /* ComSwsSensorsBtBle_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* ComSwsSensorsBtBle_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24416B8411C4CA280047AFDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = "bt-ble-sensors";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24DD6CF71134B3F500162E58 /* ComSwsSensorsBtBleModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComSwsSensorsBtBleModule.h; path = Classes/ComSwsSensorsBtBleModule.h; sourceTree = "<group>"; };
+		24DD6CF81134B3F500162E58 /* ComSwsSensorsBtBleModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComSwsSensorsBtBleModule.m; path = Classes/ComSwsSensorsBtBleModule.m; sourceTree = "<group>"; };
+		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
+		24DE9E0F11C5FE74003F90F6 /* ComSwsSensorsBtBleModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComSwsSensorsBtBleModuleAssets.h; path = Classes/ComSwsSensorsBtBleModuleAssets.h; sourceTree = "<group>"; };
+		24DE9E1011C5FE74003F90F6 /* ComSwsSensorsBtBleModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComSwsSensorsBtBleModuleAssets.m; path = Classes/ComSwsSensorsBtBleModuleAssets.m; sourceTree = "<group>"; };
+		8A2EC31A1A83544D00772EA6 /* DEACentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DEACentralManager.h; path = "../../../../native-modules/ios/ble-adapters/ble-adapters/DEACentralManager.h"; sourceTree = "<group>"; };
+		8A2EC31B1A83544D00772EA6 /* DEACentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DEACentralManager.m; path = "../../../../native-modules/ios/ble-adapters/ble-adapters/DEACentralManager.m"; sourceTree = "<group>"; };
+		8A2EC31D1A83544D00772EA6 /* BLEHeartRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEHeartRate.h; sourceTree = "<group>"; };
+		8A2EC31E1A83544D00772EA6 /* BLEHeartRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEHeartRate.m; sourceTree = "<group>"; };
+		8A2EC3201A83544D00772EA6 /* DEASensorTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEASensorTag.h; sourceTree = "<group>"; };
+		8A2EC3211A83544D00772EA6 /* DEASensorTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEASensorTag.m; sourceTree = "<group>"; };
+		8A2EC3231A83544D00772EA6 /* DEAAccelerometerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEAAccelerometerService.h; sourceTree = "<group>"; };
+		8A2EC3241A83544D00772EA6 /* DEAAccelerometerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEAAccelerometerService.m; sourceTree = "<group>"; };
+		8A2EC3251A83544D00772EA6 /* DEABarometerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEABarometerService.h; sourceTree = "<group>"; };
+		8A2EC3261A83544D00772EA6 /* DEABarometerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEABarometerService.m; sourceTree = "<group>"; };
+		8A2EC3271A83544D00772EA6 /* DEABaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEABaseService.h; sourceTree = "<group>"; };
+		8A2EC3281A83544D00772EA6 /* DEABaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEABaseService.m; sourceTree = "<group>"; };
+		8A2EC3291A83544D00772EA6 /* DEAGyroscopeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEAGyroscopeService.h; sourceTree = "<group>"; };
+		8A2EC32A1A83544D00772EA6 /* DEAGyroscopeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEAGyroscopeService.m; sourceTree = "<group>"; };
+		8A2EC32B1A83544D00772EA6 /* DEAHumidityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEAHumidityService.h; sourceTree = "<group>"; };
+		8A2EC32C1A83544D00772EA6 /* DEAHumidityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEAHumidityService.m; sourceTree = "<group>"; };
+		8A2EC32D1A83544D00772EA6 /* DEAMagnetometerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEAMagnetometerService.h; sourceTree = "<group>"; };
+		8A2EC32E1A83544D00772EA6 /* DEAMagnetometerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEAMagnetometerService.m; sourceTree = "<group>"; };
+		8A2EC32F1A83544D00772EA6 /* DEASimpleKeysService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEASimpleKeysService.h; sourceTree = "<group>"; };
+		8A2EC3301A83544D00772EA6 /* DEASimpleKeysService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEASimpleKeysService.m; sourceTree = "<group>"; };
+		8A2EC3311A83544D00772EA6 /* DEATemperatureService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEATemperatureService.h; sourceTree = "<group>"; };
+		8A2EC3321A83544D00772EA6 /* DEATemperatureService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEATemperatureService.m; sourceTree = "<group>"; };
+		8A2EC3331A83544D00772EA6 /* TISensorTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TISensorTag.h; sourceTree = "<group>"; };
+		8A2EC3351A83544D00772EA6 /* BLEStandard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEStandard.h; sourceTree = "<group>"; };
+		8A2EC3371A83544D00772EA6 /* BLEBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEBaseService.h; sourceTree = "<group>"; };
+		8A2EC3381A83544D00772EA6 /* BLEBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEBaseService.m; sourceTree = "<group>"; };
+		8A2EC3391A83544D00772EA6 /* BLEDeviceInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEDeviceInfoService.h; sourceTree = "<group>"; };
+		8A2EC33A1A83544D00772EA6 /* BLEDeviceInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEDeviceInfoService.m; sourceTree = "<group>"; };
+		8A2EC33B1A83544D00772EA6 /* BLEHeartRateService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEHeartRateService.h; sourceTree = "<group>"; };
+		8A2EC33C1A83544D00772EA6 /* BLEHeartRateService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEHeartRateService.m; sourceTree = "<group>"; };
+		8A2EC33E1A83544D00772EA6 /* NSMutableArray+fifoQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+fifoQueue.h"; sourceTree = "<group>"; };
+		8A2EC33F1A83544D00772EA6 /* NSMutableArray+fifoQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+fifoQueue.m"; sourceTree = "<group>"; };
+		8A2EC3401A83544D00772EA6 /* YMS128.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = YMS128.c; sourceTree = "<group>"; };
+		8A2EC3411A83544D00772EA6 /* YMS128.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMS128.h; sourceTree = "<group>"; };
+		8A2EC3421A83544D00772EA6 /* YMSCBCentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBCentralManager.h; sourceTree = "<group>"; };
+		8A2EC3431A83544D00772EA6 /* YMSCBCentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBCentralManager.m; sourceTree = "<group>"; };
+		8A2EC3441A83544D00772EA6 /* YMSCBCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBCharacteristic.h; sourceTree = "<group>"; };
+		8A2EC3451A83544D00772EA6 /* YMSCBCharacteristic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBCharacteristic.m; sourceTree = "<group>"; };
+		8A2EC3461A83544D00772EA6 /* YMSCBDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBDescriptor.h; sourceTree = "<group>"; };
+		8A2EC3471A83544D00772EA6 /* YMSCBDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBDescriptor.m; sourceTree = "<group>"; };
+		8A2EC3481A83544D00772EA6 /* YMSCBPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBPeripheral.h; sourceTree = "<group>"; };
+		8A2EC3491A83544D00772EA6 /* YMSCBPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBPeripheral.m; sourceTree = "<group>"; };
+		8A2EC34A1A83544D00772EA6 /* YMSCBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBService.h; sourceTree = "<group>"; };
+		8A2EC34B1A83544D00772EA6 /* YMSCBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBService.m; sourceTree = "<group>"; };
+		8A2EC34C1A83544D00772EA6 /* YMSCBStoredPeripherals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBStoredPeripherals.h; sourceTree = "<group>"; };
+		8A2EC34D1A83544D00772EA6 /* YMSCBStoredPeripherals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBStoredPeripherals.m; sourceTree = "<group>"; };
+		8A2EC34E1A83544D00772EA6 /* YMSCBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBUtils.h; sourceTree = "<group>"; };
+		8A2EC34F1A83544D00772EA6 /* YMSCBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBUtils.m; sourceTree = "<group>"; };
+		8A6E70E71AC51CDA00120B2A /* BLEMultispread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLEMultispread.h; path = "../../../../native-modules/ios/ble-adapters/ble-adapters/Multispread/BLEMultispread.h"; sourceTree = "<group>"; };
+		8A6E70E81AC51CDA00120B2A /* BLEMultispread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLEMultispread.m; path = "../../../../native-modules/ios/ble-adapters/ble-adapters/Multispread/BLEMultispread.m"; sourceTree = "<group>"; };
+		8A6E70EA1AC51CDA00120B2A /* BLESpreaderService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLESpreaderService.h; sourceTree = "<group>"; };
+		8A6E70EB1AC51CDA00120B2A /* BLESpreaderService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLESpreaderService.m; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* ComSwsSensorsBtBle_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComSwsSensorsBtBle_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libComSwsSensorsBtBle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libComSwsSensorsBtBle.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libComSwsSensorsBtBle.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* bt-ble-sensors */ = {
+			isa = PBXGroup;
+			children = (
+				8A2EC3191A83542700772EA6 /* ble-adapters */,
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = "bt-ble-sensors";
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				24DE9E0F11C5FE74003F90F6 /* ComSwsSensorsBtBleModuleAssets.h */,
+				24DE9E1011C5FE74003F90F6 /* ComSwsSensorsBtBleModuleAssets.m */,
+				24DD6CF71134B3F500162E58 /* ComSwsSensorsBtBleModule.h */,
+				24DD6CF81134B3F500162E58 /* ComSwsSensorsBtBleModule.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* ComSwsSensorsBtBle_Prefix.pch */,
+				24DD6D1B1134B66800162E58 /* titanium.xcconfig */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		8A2EC3191A83542700772EA6 /* ble-adapters */ = {
+			isa = PBXGroup;
+			children = (
+				8A6E70E61AC51CA100120B2A /* Multispread */,
+				8A2EC31A1A83544D00772EA6 /* DEACentralManager.h */,
+				8A2EC31B1A83544D00772EA6 /* DEACentralManager.m */,
+				8A2EC31C1A83544D00772EA6 /* HeartRate */,
+				8A2EC31F1A83544D00772EA6 /* SensorTag */,
+				8A2EC3341A83544D00772EA6 /* Standard */,
+				8A2EC33D1A83544D00772EA6 /* YmsCoreBluetooth */,
+			);
+			name = "ble-adapters";
+			sourceTree = "<group>";
+		};
+		8A2EC31C1A83544D00772EA6 /* HeartRate */ = {
+			isa = PBXGroup;
+			children = (
+				8A2EC31D1A83544D00772EA6 /* BLEHeartRate.h */,
+				8A2EC31E1A83544D00772EA6 /* BLEHeartRate.m */,
+			);
+			name = HeartRate;
+			path = "../../../../native-modules/ios/ble-adapters/ble-adapters/HeartRate";
+			sourceTree = "<group>";
+		};
+		8A2EC31F1A83544D00772EA6 /* SensorTag */ = {
+			isa = PBXGroup;
+			children = (
+				8A2EC3201A83544D00772EA6 /* DEASensorTag.h */,
+				8A2EC3211A83544D00772EA6 /* DEASensorTag.m */,
+				8A2EC3221A83544D00772EA6 /* Services */,
+				8A2EC3331A83544D00772EA6 /* TISensorTag.h */,
+			);
+			name = SensorTag;
+			path = "../../../../native-modules/ios/ble-adapters/ble-adapters/SensorTag";
+			sourceTree = "<group>";
+		};
+		8A2EC3221A83544D00772EA6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8A2EC3231A83544D00772EA6 /* DEAAccelerometerService.h */,
+				8A2EC3241A83544D00772EA6 /* DEAAccelerometerService.m */,
+				8A2EC3251A83544D00772EA6 /* DEABarometerService.h */,
+				8A2EC3261A83544D00772EA6 /* DEABarometerService.m */,
+				8A2EC3271A83544D00772EA6 /* DEABaseService.h */,
+				8A2EC3281A83544D00772EA6 /* DEABaseService.m */,
+				8A2EC3291A83544D00772EA6 /* DEAGyroscopeService.h */,
+				8A2EC32A1A83544D00772EA6 /* DEAGyroscopeService.m */,
+				8A2EC32B1A83544D00772EA6 /* DEAHumidityService.h */,
+				8A2EC32C1A83544D00772EA6 /* DEAHumidityService.m */,
+				8A2EC32D1A83544D00772EA6 /* DEAMagnetometerService.h */,
+				8A2EC32E1A83544D00772EA6 /* DEAMagnetometerService.m */,
+				8A2EC32F1A83544D00772EA6 /* DEASimpleKeysService.h */,
+				8A2EC3301A83544D00772EA6 /* DEASimpleKeysService.m */,
+				8A2EC3311A83544D00772EA6 /* DEATemperatureService.h */,
+				8A2EC3321A83544D00772EA6 /* DEATemperatureService.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8A2EC3341A83544D00772EA6 /* Standard */ = {
+			isa = PBXGroup;
+			children = (
+				8A2EC3351A83544D00772EA6 /* BLEStandard.h */,
+				8A2EC3361A83544D00772EA6 /* Services */,
+			);
+			name = Standard;
+			path = "../../../../native-modules/ios/ble-adapters/ble-adapters/Standard";
+			sourceTree = "<group>";
+		};
+		8A2EC3361A83544D00772EA6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8A2EC3371A83544D00772EA6 /* BLEBaseService.h */,
+				8A2EC3381A83544D00772EA6 /* BLEBaseService.m */,
+				8A2EC3391A83544D00772EA6 /* BLEDeviceInfoService.h */,
+				8A2EC33A1A83544D00772EA6 /* BLEDeviceInfoService.m */,
+				8A2EC33B1A83544D00772EA6 /* BLEHeartRateService.h */,
+				8A2EC33C1A83544D00772EA6 /* BLEHeartRateService.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8A2EC33D1A83544D00772EA6 /* YmsCoreBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				8A2EC33E1A83544D00772EA6 /* NSMutableArray+fifoQueue.h */,
+				8A2EC33F1A83544D00772EA6 /* NSMutableArray+fifoQueue.m */,
+				8A2EC3401A83544D00772EA6 /* YMS128.c */,
+				8A2EC3411A83544D00772EA6 /* YMS128.h */,
+				8A2EC3421A83544D00772EA6 /* YMSCBCentralManager.h */,
+				8A2EC3431A83544D00772EA6 /* YMSCBCentralManager.m */,
+				8A2EC3441A83544D00772EA6 /* YMSCBCharacteristic.h */,
+				8A2EC3451A83544D00772EA6 /* YMSCBCharacteristic.m */,
+				8A2EC3461A83544D00772EA6 /* YMSCBDescriptor.h */,
+				8A2EC3471A83544D00772EA6 /* YMSCBDescriptor.m */,
+				8A2EC3481A83544D00772EA6 /* YMSCBPeripheral.h */,
+				8A2EC3491A83544D00772EA6 /* YMSCBPeripheral.m */,
+				8A2EC34A1A83544D00772EA6 /* YMSCBService.h */,
+				8A2EC34B1A83544D00772EA6 /* YMSCBService.m */,
+				8A2EC34C1A83544D00772EA6 /* YMSCBStoredPeripherals.h */,
+				8A2EC34D1A83544D00772EA6 /* YMSCBStoredPeripherals.m */,
+				8A2EC34E1A83544D00772EA6 /* YMSCBUtils.h */,
+				8A2EC34F1A83544D00772EA6 /* YMSCBUtils.m */,
+			);
+			name = YmsCoreBluetooth;
+			path = "../../../../native-modules/ios/ble-adapters/ble-adapters/YmsCoreBluetooth";
+			sourceTree = "<group>";
+		};
+		8A6E70E61AC51CA100120B2A /* Multispread */ = {
+			isa = PBXGroup;
+			children = (
+				8A6E70E71AC51CDA00120B2A /* BLEMultispread.h */,
+				8A6E70E81AC51CDA00120B2A /* BLEMultispread.m */,
+				8A6E70E91AC51CDA00120B2A /* Services */,
+			);
+			name = Multispread;
+			sourceTree = "<group>";
+		};
+		8A6E70E91AC51CDA00120B2A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8A6E70EA1AC51CDA00120B2A /* BLESpreaderService.h */,
+				8A6E70EB1AC51CDA00120B2A /* BLESpreaderService.m */,
+			);
+			name = Services;
+			path = "../../../../native-modules/ios/ble-adapters/ble-adapters/Multispread/Services";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A2EC3541A83544D00772EA6 /* DEASensorTag.h in Headers */,
+				8A2EC3601A83544D00772EA6 /* DEAMagnetometerService.h in Headers */,
+				8A2EC3561A83544D00772EA6 /* DEAAccelerometerService.h in Headers */,
+				8A2EC3661A83544D00772EA6 /* TISensorTag.h in Headers */,
+				8A2EC3761A83544D00772EA6 /* YMSCBDescriptor.h in Headers */,
+				AA747D9F0F9514B9006C5449 /* ComSwsSensorsBtBle_Prefix.pch in Headers */,
+				8A2EC35C1A83544D00772EA6 /* DEAGyroscopeService.h in Headers */,
+				8A2EC37C1A83544D00772EA6 /* YMSCBStoredPeripherals.h in Headers */,
+				8A6E70EE1AC51CDA00120B2A /* BLESpreaderService.h in Headers */,
+				24DD6CF91134B3F500162E58 /* ComSwsSensorsBtBleModule.h in Headers */,
+				8A2EC3781A83544D00772EA6 /* YMSCBPeripheral.h in Headers */,
+				8A2EC3671A83544D00772EA6 /* BLEStandard.h in Headers */,
+				8A2EC35E1A83544D00772EA6 /* DEAHumidityService.h in Headers */,
+				24DE9E1111C5FE74003F90F6 /* ComSwsSensorsBtBleModuleAssets.h in Headers */,
+				8A2EC3521A83544D00772EA6 /* BLEHeartRate.h in Headers */,
+				8A2EC3721A83544D00772EA6 /* YMSCBCentralManager.h in Headers */,
+				8A2EC3681A83544D00772EA6 /* BLEBaseService.h in Headers */,
+				8A6E70EC1AC51CDA00120B2A /* BLEMultispread.h in Headers */,
+				8A2EC35A1A83544D00772EA6 /* DEABaseService.h in Headers */,
+				8A2EC37E1A83544D00772EA6 /* YMSCBUtils.h in Headers */,
+				8A2EC3501A83544D00772EA6 /* DEACentralManager.h in Headers */,
+				8A2EC37A1A83544D00772EA6 /* YMSCBService.h in Headers */,
+				8A2EC36A1A83544D00772EA6 /* BLEDeviceInfoService.h in Headers */,
+				8A2EC3621A83544D00772EA6 /* DEASimpleKeysService.h in Headers */,
+				8A2EC36C1A83544D00772EA6 /* BLEHeartRateService.h in Headers */,
+				8A2EC3641A83544D00772EA6 /* DEATemperatureService.h in Headers */,
+				8A2EC36E1A83544D00772EA6 /* NSMutableArray+fifoQueue.h in Headers */,
+				8A2EC3711A83544D00772EA6 /* YMS128.h in Headers */,
+				8A2EC3741A83544D00772EA6 /* YMSCBCharacteristic.h in Headers */,
+				8A2EC3581A83544D00772EA6 /* DEABarometerService.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* bt-ble-sensors */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "bt-ble-sensors" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "bt-ble-sensors";
+			productName = "bt-ble-sensors";
+			productReference = D2AAC07E0554694100DB518D /* libComSwsSensorsBtBle.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "bt-ble-sensors" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* bt-ble-sensors */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* bt-ble-sensors */,
+				24416B8111C4CA220047AFDD /* Build & Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24416B8011C4CA220047AFDD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\npython \"${TITANIUM_SDK}/titanium.py\" run --dir=\"${PROJECT_DIR}\"\nexit $?\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A2EC3571A83544D00772EA6 /* DEAAccelerometerService.m in Sources */,
+				8A2EC35B1A83544D00772EA6 /* DEABaseService.m in Sources */,
+				8A2EC3611A83544D00772EA6 /* DEAMagnetometerService.m in Sources */,
+				8A2EC3531A83544D00772EA6 /* BLEHeartRate.m in Sources */,
+				8A2EC36D1A83544D00772EA6 /* BLEHeartRateService.m in Sources */,
+				24DD6CFA1134B3F500162E58 /* ComSwsSensorsBtBleModule.m in Sources */,
+				8A2EC3731A83544D00772EA6 /* YMSCBCentralManager.m in Sources */,
+				8A2EC37B1A83544D00772EA6 /* YMSCBService.m in Sources */,
+				8A6E70ED1AC51CDA00120B2A /* BLEMultispread.m in Sources */,
+				8A2EC35D1A83544D00772EA6 /* DEAGyroscopeService.m in Sources */,
+				8A2EC36F1A83544D00772EA6 /* NSMutableArray+fifoQueue.m in Sources */,
+				24DE9E1211C5FE74003F90F6 /* ComSwsSensorsBtBleModuleAssets.m in Sources */,
+				8A6E70EF1AC51CDA00120B2A /* BLESpreaderService.m in Sources */,
+				8A2EC3791A83544D00772EA6 /* YMSCBPeripheral.m in Sources */,
+				8A2EC3701A83544D00772EA6 /* YMS128.c in Sources */,
+				8A2EC3551A83544D00772EA6 /* DEASensorTag.m in Sources */,
+				8A2EC3651A83544D00772EA6 /* DEATemperatureService.m in Sources */,
+				8A2EC35F1A83544D00772EA6 /* DEAHumidityService.m in Sources */,
+				8A2EC3511A83544D00772EA6 /* DEACentralManager.m in Sources */,
+				8A2EC37D1A83544D00772EA6 /* YMSCBStoredPeripherals.m in Sources */,
+				8A2EC37F1A83544D00772EA6 /* YMSCBUtils.m in Sources */,
+				8A2EC3751A83544D00772EA6 /* YMSCBCharacteristic.m in Sources */,
+				8A2EC3771A83544D00772EA6 /* YMSCBDescriptor.m in Sources */,
+				8A2EC3631A83544D00772EA6 /* DEASimpleKeysService.m in Sources */,
+				8A2EC36B1A83544D00772EA6 /* BLEDeviceInfoService.m in Sources */,
+				8A2EC3691A83544D00772EA6 /* BLEBaseService.m in Sources */,
+				8A2EC3591A83544D00772EA6 /* DEABarometerService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24416B8511C4CA280047AFDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* bt-ble-sensors */;
+			targetProxy = 24416B8411C4CA280047AFDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/ComSwsSensorsBtBle.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ComSwsSensorsBtBle_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = ComSwsSensorsBtBle;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DSTROOT = /tmp/ComSwsSensorsBtBle.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ComSwsSensorsBtBle_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = ComSwsSensorsBtBle;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				"ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD)";
+				"ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/ComSwsSensorsBtBle.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ComSwsSensorsBtBle_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = ComSwsSensorsBtBle;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"ARCHS[sdk=iphoneos*]" = "$(ARCHS_STANDARD)";
+				"ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				DSTROOT = /tmp/ComSwsSensorsBtBle.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ComSwsSensorsBtBle_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = ComSwsSensorsBtBle;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+			};
+			name = Release;
+		};
+		24416B8211C4CA220047AFDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "Build & test";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+			};
+			name = Debug;
+		};
+		24416B8311C4CA220047AFDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "Build & test";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "bt-ble-sensors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "bt-ble-sensors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24416B8211C4CA220047AFDD /* Debug */,
+				24416B8311C4CA220047AFDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

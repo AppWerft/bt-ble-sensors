@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.1
+apiversion: 2
+architectures: armv7 arm64 i386 x86_64
+description: bt-ble-sensors
+author: Jason Waring
+license: Commercial
+copyright: Copyright (c) 2015 by SoftWaring Solutions
+
+# these should not be edited
+name: bt-ble-sensors
+moduleid: com.sws.sensors.bt.ble
+guid: 049d9453-b617-471f-912a-835a21fb0542
+platform: iphone
+minsdk: 3.5.0.GA
