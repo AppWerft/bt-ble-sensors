@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2AF96BAD-25C1-4EA0-ACDB-B1344E097E96</string>
+	<key>IDESourceControlProjectName</key>
+	<string>bt-ble-sensors</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2F940AE2FFA30640C3DED1A89DA08DD708A229C8</key>
+		<string>https://bitbucket.org/jwaring/ble-adapters.git</string>
+		<key>3ED1A1C05AA939B4B0FDA8B9126D5EE3EF1D92D4</key>
+		<string>https://bitbucket.org/jwaring/bt-ble-sensors.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iphone/bt-ble-sensors.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2F940AE2FFA30640C3DED1A89DA08DD708A229C8</key>
+		<string>../../../../native-modules/ios/ble-adapters</string>
+		<key>3ED1A1C05AA939B4B0FDA8B9126D5EE3EF1D92D4</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/jwaring/bt-ble-sensors.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3ED1A1C05AA939B4B0FDA8B9126D5EE3EF1D92D4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2F940AE2FFA30640C3DED1A89DA08DD708A229C8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ble-adapters</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3ED1A1C05AA939B4B0FDA8B9126D5EE3EF1D92D4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>bt-ble-sensors</string>
+		</dict>
+	</array>
+</dict>
+</plist>
