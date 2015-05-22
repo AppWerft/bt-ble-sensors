@@ -14,10 +14,10 @@
 #import "TiHost.h"
 #import "TiUtils.h"
 
-#define STATUS_EVENT @"status"
-#define SCANNING_EVENT @"scanning"
-#define CONNECTION_EVENT @"connection"
-#define DATA_EVENT @"data"
+#define STATUS_EVENT @"bluetooth-le:status"
+#define SCANNING_EVENT @"bluetooth-le:scanning"
+#define CONNECTION_EVENT @"bluetooth-le:connection"
+#define DATA_EVENT @"bluetooth-le:data"
 
 @interface ComSwsSensorsBtBleModule ()
 -(NSString *)currentTimestamp;
@@ -509,12 +509,14 @@
 }
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
-    requestedConnection = nil;
-    NSMutableDictionary *data = [NSMutableDictionary dictionary];
-    [data setObject:[self currentTimestamp] forKey:@"timestamp"];
-    [data setObject:[[peripheral identifier] UUIDString] forKey:@"address"];
-    [data setObject:@"connected" forKey:@"status"];
-    [self invokeCallback:CONNECTION_EVENT withData:data];
+    if ([peripheral state] == CBPeripheralStateConnected) {
+        requestedConnection = nil;
+        NSMutableDictionary *data = [NSMutableDictionary dictionary];
+        [data setObject:[self currentTimestamp] forKey:@"timestamp"];
+        [data setObject:[[peripheral identifier] UUIDString] forKey:@"address"];
+        [data setObject:@"connected" forKey:@"status"];
+        [self invokeCallback:CONNECTION_EVENT withData:data];
+    }
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
