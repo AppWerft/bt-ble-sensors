@@ -245,29 +245,17 @@
     ComSwsSensorsBtBleModule *this = self;
     
     [centralManager startScanWithCallback:^(CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI, NSString *inferredType) {
-        if (([peripheral name] != nil) && ([peripheral identifier] != nil)) {
+        if (([peripheral identifier] != nil) && (inferredType != nil)) {
             
-            // Debug
-            /*
-             NSLog(@"NAME: %@, UUID: %@, RSSI: %@ db, AD: {", [peripheral name], [[peripheral identifier] UUIDString], RSSI);
-             for (id nsKey in advertisementData) {
-             NSLog(@"%@:%@,", nsKey, [advertisementData objectForKey:nsKey]);
-             }
-             NSLog(@"}");
-             */
-            
+            NSString *name = ([peripheral name] != nil) ? [peripheral name] : inferredType;
             
             NSMutableDictionary *scanData = [NSMutableDictionary dictionary];
             [scanData setObject:@"device-detected" forKey:@"action"];
             [scanData setObject:[this currentTimestamp] forKey:@"timestamp"];
-            [scanData setObject:[peripheral name] forKey:@"name"];
             [scanData setObject:[[peripheral identifier] UUIDString] forKey:@"address"];
             [scanData setObject:RSSI forKey:@"rssi"];
-            if (inferredType != nil) {
-                [scanData setObject:inferredType forKey:@"type"];
-            } else {
-                [scanData setObject:@"unknown" forKey:@"type"];
-            }
+            [scanData setObject:name forKey:@"name"];
+            [scanData setObject:inferredType forKey:@"type"];
             
             // TODO ... The advertisement may contain ANY property of ANY type, for which it may not be possible to pass across the Kroll bridge.
             // This has already been shown to be a problem for CBUUID's, with the warning:
@@ -511,6 +499,7 @@
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
     if ([peripheral state] == CBPeripheralStateConnected) {
         requestedConnection = nil;
+
         NSMutableDictionary *data = [NSMutableDictionary dictionary];
         [data setObject:[self currentTimestamp] forKey:@"timestamp"];
         [data setObject:[[peripheral identifier] UUIDString] forKey:@"address"];
