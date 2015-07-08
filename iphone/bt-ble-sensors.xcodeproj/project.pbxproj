@@ -74,6 +74,10 @@
 		8A2EC37D1A83544D00772EA6 /* YMSCBStoredPeripherals.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC34D1A83544D00772EA6 /* YMSCBStoredPeripherals.m */; };
 		8A2EC37E1A83544D00772EA6 /* YMSCBUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2EC34E1A83544D00772EA6 /* YMSCBUtils.h */; };
 		8A2EC37F1A83544D00772EA6 /* YMSCBUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EC34F1A83544D00772EA6 /* YMSCBUtils.m */; };
+		8A315F5F1B3CF4D00084DDF2 /* BLETaskItSerial.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A315F5D1B3CF4D00084DDF2 /* BLETaskItSerial.h */; };
+		8A315F601B3CF4D00084DDF2 /* BLETaskItSerial.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A315F5E1B3CF4D00084DDF2 /* BLETaskItSerial.m */; };
+		8A315F651B3CF5320084DDF2 /* BLETaskItSerialService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A315F631B3CF5320084DDF2 /* BLETaskItSerialService.h */; };
+		8A315F661B3CF5320084DDF2 /* BLETaskItSerialService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A315F641B3CF5320084DDF2 /* BLETaskItSerialService.m */; };
 		8A6E70EC1AC51CDA00120B2A /* BLEMultispread.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A6E70E71AC51CDA00120B2A /* BLEMultispread.h */; };
 		8A6E70ED1AC51CDA00120B2A /* BLEMultispread.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E70E81AC51CDA00120B2A /* BLEMultispread.m */; };
 		8A6E70EE1AC51CDA00120B2A /* BLESpreaderService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A6E70EA1AC51CDA00120B2A /* BLESpreaderService.h */; };
@@ -146,6 +150,10 @@
 		8A2EC34D1A83544D00772EA6 /* YMSCBStoredPeripherals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBStoredPeripherals.m; sourceTree = "<group>"; };
 		8A2EC34E1A83544D00772EA6 /* YMSCBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMSCBUtils.h; sourceTree = "<group>"; };
 		8A2EC34F1A83544D00772EA6 /* YMSCBUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMSCBUtils.m; sourceTree = "<group>"; };
+		8A315F5D1B3CF4D00084DDF2 /* BLETaskItSerial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLETaskItSerial.h; path = "../../../../native-modules/ios/ble-adapters/ble-adapters/TaskIt/BLETaskItSerial.h"; sourceTree = "<group>"; };
+		8A315F5E1B3CF4D00084DDF2 /* BLETaskItSerial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLETaskItSerial.m; path = "../../../../native-modules/ios/ble-adapters/ble-adapters/TaskIt/BLETaskItSerial.m"; sourceTree = "<group>"; };
+		8A315F631B3CF5320084DDF2 /* BLETaskItSerialService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLETaskItSerialService.h; sourceTree = "<group>"; };
+		8A315F641B3CF5320084DDF2 /* BLETaskItSerialService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLETaskItSerialService.m; sourceTree = "<group>"; };
 		8A6E70E71AC51CDA00120B2A /* BLEMultispread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLEMultispread.h; path = "../../../../native-modules/ios/ble-adapters/ble-adapters/Multispread/BLEMultispread.h"; sourceTree = "<group>"; };
 		8A6E70E81AC51CDA00120B2A /* BLEMultispread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLEMultispread.m; path = "../../../../native-modules/ios/ble-adapters/ble-adapters/Multispread/BLEMultispread.m"; sourceTree = "<group>"; };
 		8A6E70EA1AC51CDA00120B2A /* BLESpreaderService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLESpreaderService.h; sourceTree = "<group>"; };
@@ -218,6 +226,7 @@
 		8A2EC3191A83542700772EA6 /* ble-adapters */ = {
 			isa = PBXGroup;
 			children = (
+				8A315F5C1B3CF4640084DDF2 /* TaskIt */,
 				8A6E70E61AC51CA100120B2A /* Multispread */,
 				8A2EC31A1A83544D00772EA6 /* DEACentralManager.h */,
 				8A2EC31B1A83544D00772EA6 /* DEACentralManager.m */,
@@ -323,6 +332,26 @@
 			path = "../../../../native-modules/ios/ble-adapters/ble-adapters/YmsCoreBluetooth";
 			sourceTree = "<group>";
 		};
+		8A315F5C1B3CF4640084DDF2 /* TaskIt */ = {
+			isa = PBXGroup;
+			children = (
+				8A315F621B3CF5320084DDF2 /* Services */,
+				8A315F5D1B3CF4D00084DDF2 /* BLETaskItSerial.h */,
+				8A315F5E1B3CF4D00084DDF2 /* BLETaskItSerial.m */,
+			);
+			name = TaskIt;
+			sourceTree = "<group>";
+		};
+		8A315F621B3CF5320084DDF2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8A315F631B3CF5320084DDF2 /* BLETaskItSerialService.h */,
+				8A315F641B3CF5320084DDF2 /* BLETaskItSerialService.m */,
+			);
+			name = Services;
+			path = "../../../../native-modules/ios/ble-adapters/ble-adapters/TaskIt/Services";
+			sourceTree = "<group>";
+		};
 		8A6E70E61AC51CA100120B2A /* Multispread */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +381,7 @@
 			files = (
 				8A2EC3541A83544D00772EA6 /* DEASensorTag.h in Headers */,
 				8A2EC3601A83544D00772EA6 /* DEAMagnetometerService.h in Headers */,
+				8A315F651B3CF5320084DDF2 /* BLETaskItSerialService.h in Headers */,
 				8A2EC3561A83544D00772EA6 /* DEAAccelerometerService.h in Headers */,
 				8A2EC3661A83544D00772EA6 /* TISensorTag.h in Headers */,
 				8A2EC3761A83544D00772EA6 /* YMSCBDescriptor.h in Headers */,
@@ -374,6 +404,7 @@
 				8A2EC37A1A83544D00772EA6 /* YMSCBService.h in Headers */,
 				8A2EC36A1A83544D00772EA6 /* BLEDeviceInfoService.h in Headers */,
 				8A2EC3621A83544D00772EA6 /* DEASimpleKeysService.h in Headers */,
+				8A315F5F1B3CF4D00084DDF2 /* BLETaskItSerial.h in Headers */,
 				8A2EC36C1A83544D00772EA6 /* BLEHeartRateService.h in Headers */,
 				8A2EC3641A83544D00772EA6 /* DEATemperatureService.h in Headers */,
 				8A2EC36E1A83544D00772EA6 /* NSMutableArray+fifoQueue.h in Headers */,
@@ -477,9 +508,11 @@
 				8A2EC3751A83544D00772EA6 /* YMSCBCharacteristic.m in Sources */,
 				8A2EC3771A83544D00772EA6 /* YMSCBDescriptor.m in Sources */,
 				8A2EC3631A83544D00772EA6 /* DEASimpleKeysService.m in Sources */,
+				8A315F661B3CF5320084DDF2 /* BLETaskItSerialService.m in Sources */,
 				8A2EC36B1A83544D00772EA6 /* BLEDeviceInfoService.m in Sources */,
 				8A2EC3691A83544D00772EA6 /* BLEBaseService.m in Sources */,
 				8A2EC3591A83544D00772EA6 /* DEABarometerService.m in Sources */,
+				8A315F601B3CF4D00084DDF2 /* BLETaskItSerial.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

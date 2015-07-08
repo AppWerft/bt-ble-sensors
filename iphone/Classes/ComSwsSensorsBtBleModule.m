@@ -10,6 +10,7 @@
 #include "BLEHeartRate.h"
 #include "BLEHeartRateService.h"
 #include "BLEMultispread.h"
+#include "BLETaskItSerial.h"
 #import "TiBase.h"
 #import "TiHost.h"
 #import "TiUtils.h"
@@ -344,9 +345,20 @@
                     
                     NSLog(@"[BLE-SENSORS] Update %@ with %@", uuid, values);
                 } else {
-                    NSLog(@"[BLE-SENSORS] Attempt to update %@ as a spreader service", uuid);
+                    NSLog(@"[BLE-SENSORS] Invalid attempt to update %@ with spreader service", uuid);
                 }
                 
+            } else if ([serviceName isEqualToString:TASKIT_SERIAL_SERVICE]) {
+                if ([peripheral isKindOfClass:[BLETaskItSerial class]]) {
+                    BLETaskItSerial *serial = [((BLETaskItSerial *)peripheral) serial];
+                    [serial updateCharacteristics:values];
+                    
+                    NSLog(@"[BLE-SENSORS] Update %@ with %@", uuid, values);
+                } else {
+                    NSLog(@"[BLE-SENSORS] Invalid attempt to update %@ with serial service", uuid);
+                }
+
+            
             } else {
                 NSLog(@"[BLE-SENSORS] Attempt to update %@ to unknown service %@", uuid, serviceName);
             }
