@@ -226,11 +226,8 @@
 
 -(NSString *)currentTimestamp {
     NSTimeInterval time = ([[NSDate date] timeIntervalSince1970]); // returned as a double
-    long digits = (long)time; // this is the first 10 digits
-    int decimalDigits = (int)(fmod(time, 1) * 1000); // this will get the 3 missing digits
-    long timestamp = (digits * 1000) + decimalDigits;
-    
-    return [NSString stringWithFormat:@"%ld%d", digits, decimalDigits];
+    long long milliseconds = (long long)([[NSDate date] timeIntervalSince1970] * 1000.0);
+    return [NSString stringWithFormat:@"%lld", milliseconds];
 }
 
 /* Scan for bluetooth ble devices, returning the current status
