@@ -43,5 +43,6 @@
 -(void)connect:(NSArray *)args; // NSString *uuid[, NSString *hint]
 -(void)disconnect:(id)uuid;
 -(void)update:(NSArray *)args;  // NSString *uuid, NSDictionary *values
+-(void)requestDeviceInfo:(id)uuid;
 
 @end

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3ED1A1C05AA939B4B0FDA8B9126D5EE3EF1D92D4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3ED1A1C05AA939B4B0FDA8B9126D5EE3EF1D92D4" : 0,
+    "2F940AE2FFA30640C3DED1A89DA08DD708A229C8" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2AF96BAD-25C1-4EA0-ACDB-B1344E097E96",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3ED1A1C05AA939B4B0FDA8B9126D5EE3EF1D92D4" : "bt-ble-sensors",
+    "2F940AE2FFA30640C3DED1A89DA08DD708A229C8" : "native-modules\/ios\/ble-adapters"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "bt-ble-sensors",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iphone\/bt-ble-sensors.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/jwaring\/ble-adapters.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2F940AE2FFA30640C3DED1A89DA08DD708A229C8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/jwaring\/bt-ble-sensors.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3ED1A1C05AA939B4B0FDA8B9126D5EE3EF1D92D4"
+    }
+  ]
+}

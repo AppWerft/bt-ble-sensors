@@ -10,7 +10,10 @@
 #include "BLEHeartRate.h"
 #include "BLEHeartRateService.h"
 #include "BLEMultispread.h"
+#include "BLESpreaderService.h"
 #include "BLETaskItSerial.h"
+#include "BLETaskItSerialService.h"
+#include "BLEDeviceInfoService.h"
 #import "TiBase.h"
 #import "TiHost.h"
 #import "TiUtils.h"
@@ -292,6 +295,7 @@
     NSString *uuid;
     ENSURE_ARG_AT_INDEX(uuid, args, 0, NSString);
     NSUUID * nsuuid = [[NSUUID UUID] initWithUUIDString:uuid];
+    NSArray *peripherals;
     
     DEACentralManager *centralManager = [DEACentralManager sharedService];
     
@@ -300,14 +304,31 @@
         ENSURE_ARG_AT_INDEX(hint, args, 1, NSString);
         
         [centralManager addPeripheralHint:uuid hint:hint];
-        [centralManager retrievePeripheralsWithIdentifiers:[NSArray arrayWithObjects: nsuuid, nil]];
+        peripherals = [centralManager retrievePeripheralsWithIdentifiers:[NSArray arrayWithObjects: nsuuid, nil]];
         
         NSLog(@"[BLE-SENSORS] Connecting to device: %@ as %@", uuid, hint);
     } else {
-        [centralManager retrievePeripheralsWithIdentifiers:[NSArray arrayWithObjects: nsuuid, nil]];
+        peripherals = [centralManager retrievePeripheralsWithIdentifiers:[NSArray arrayWithObjects: nsuuid, nil]];
         
         NSLog(@"[BLE-SENSORS] Connecting to device: %@", uuid);
     }
+
+    // Connect to the peripheral
+     size_t length = (size_t)[peripherals count];
+     if (length > 0) {
+         CBPeripheral *peripheral = [peripherals objectAtIndex:0];
+         YMSCBPeripheral *yp = [centralManager findPeripheral:peripheral];
+         
+         if ([yp isKindOfClass:[YMSCBPeripheral class]]) {
+             YMSCBPeripheral *ymsPeripheral = (YMSCBPeripheral *)yp;
+             ymsPeripheral.delegate = self;
+             ymsPeripheral.watchdogTimerInterval = 30.0;
+             [ymsPeripheral connect];
+             
+         } else {
+             //            NSLog(@"Unknown perhipheral");
+         }
+     }
 }
 
 -(void)disconnect:(id)uuid {
@@ -337,8 +358,8 @@
             NSString *serviceName = [values objectForKey:@"service"];
             if ([serviceName isEqualToString:SPREADER_SERVICE]) {
                 if ([peripheral isKindOfClass:[BLEMultispread class]]) {
-                    BLESpreaderService *spreader = [((BLEMultispread *)peripheral) spreader];
-                    [spreader updateCharacteristics:values];
+                    BLEMultispread *multispread = (BLEMultispread *)peripheral;
+                    [multispread.spreader updateCharacteristics:values];
                     
                     NSLog(@"[BLE-SENSORS] Update %@ with %@", uuid, values);
                 } else {
@@ -347,15 +368,14 @@
                 
             } else if ([serviceName isEqualToString:TASKIT_SERIAL_SERVICE]) {
                 if ([peripheral isKindOfClass:[BLETaskItSerial class]]) {
-                    BLETaskItSerial *serial = [((BLETaskItSerial *)peripheral) serial];
-                    [serial updateCharacteristics:values];
+                    BLETaskItSerial *taskit = (BLETaskItSerial *)peripheral;
+                    [taskit.serial updateCharacteristics:values];
                     
                     NSLog(@"[BLE-SENSORS] Update %@ with %@", uuid, values);
                 } else {
                     NSLog(@"[BLE-SENSORS] Invalid attempt to update %@ with serial service", uuid);
                 }
-
-            
+           
             } else {
                 NSLog(@"[BLE-SENSORS] Attempt to update %@ to unknown service %@", uuid, serviceName);
             }
@@ -366,6 +386,47 @@
     } else {
         NSLog(@"[BLE-SENSORS] Attempt to update %@ when not connected", uuid);
     }
+}
+
+-(void)requestDeviceInfo:(id)uuid {
+    ENSURE_SINGLE_ARG(uuid, NSString);
+    
+    DEACentralManager *centralManager = [DEACentralManager sharedService];
+    NSUUID * nsuuid = [[NSUUID UUID] initWithUUIDString:uuid];
+    YMSCBPeripheral *peripheral = [centralManager findPeripheralByUUID: nsuuid];
+    
+    if ([peripheral isConnected] == YES) {
+        // TODO ... generify.
+        if ([peripheral isKindOfClass:[BLEMultispread class]]) {
+            BLEMultispread *multispread = (BLEMultispread *)peripheral;
+//            [multispread.deviceInfo readDeviceInfo];
+            [self sendDeviceInfo:uuid deviceInfoService:multispread.deviceInfo];
+            
+        } else if ([peripheral isKindOfClass:[BLETaskItSerial class]]) {
+            BLETaskItSerial *taskit = (BLETaskItSerial *)peripheral;
+//            [taskit.deviceInfo readDeviceInfo];
+            [self sendDeviceInfo:uuid deviceInfoService:taskit.deviceInfo];
+        }
+    }
+}
+
+- (void)sendDeviceInfo: (NSString *)uuid deviceInfoService:(BLEDeviceInfoService *)diService {
+     NSDictionary *values = @{
+                              @"modelNumber":[diService model_number],
+                              @"serialNumber":[diService serial_number],
+                              @"firmwareRev":[diService firmware_rev],
+                              @"hardwareRev":[diService hardware_rev],
+                              @"softwareRev":[diService software_rev],
+                              @"manufacturerName":[diService manufacturer_name]
+                              };
+
+    NSMutableDictionary *data = [NSMutableDictionary dictionary];
+    [data setObject: [self currentTimestamp] forKey:@"timestamp"];
+    [data setObject: uuid forKey:@"address"];
+    [data setObject: @"deviceInfo" forKey:@"service"];
+    [data setObject: values forKey:@"values"];
+    
+    [self invokeCallback:DATA_EVENT withData:data];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -483,26 +544,6 @@
     }
     
     [self configureObserverForPeripheral:peripheral];
-}
-
-- (void)centralManager:(CBCentralManager *)central didRetrievePeripherals:(NSArray *)peripherals {
-    DEACentralManager *centralManager = [DEACentralManager sharedService];
-    
-    unsigned long count = (unsigned long)[peripherals count];
-    if (count > 0) {
-        CBPeripheral *peripheral = [peripherals objectAtIndex:0];
-        YMSCBPeripheral *yp = [centralManager findPeripheral:peripheral];
-        
-        if ([yp isKindOfClass:[YMSCBPeripheral class]]) {
-            YMSCBPeripheral *ymsPeripheral = (YMSCBPeripheral *)yp;
-            ymsPeripheral.delegate = self;
-            ymsPeripheral.watchdogTimerInterval = 30.0;
-            [ymsPeripheral connect];
-            
-        } else {
-            //            NSLog(@"Unknown perhipheral");
-        }
-    }
 }
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
