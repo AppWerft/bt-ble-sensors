@@ -18,17 +18,25 @@
 #import "TiHost.h"
 #import "TiUtils.h"
 
+#if USE_FUNCTIONS_FOR_EVENT
+#define STATUS_EVENT @"status"
+#define SCANNING_EVENT @"scanning"
+#define CONNECTION_EVENT @"connection"
+#define DATA_EVENT @"data"
+#else
+
 #define STATUS_EVENT @"bluetooth-le:status"
 #define SCANNING_EVENT @"bluetooth-le:scanning"
 #define CONNECTION_EVENT @"bluetooth-le:connection"
 #define DATA_EVENT @"bluetooth-le:data"
+#endif
 
 @interface ComSwsSensorsBtBleModule ()
 -(NSString *)currentTimestamp;
 @end
 
 @implementation ComSwsSensorsBtBleModule
-
+BLEBaseService *baseService;
 
 #pragma mark Internal
 
@@ -208,19 +216,24 @@
     return nil;
 }
 
--(void)invokeCallback:(NSString*)callbackName withData:(NSMutableDictionary*)data {
+-(void)invokeCallback:(NSString*)callbackName withData:(NSMutableDictionary*)eventData {
     KrollCallback *callback = [self findCallback:callbackName];
     if (callback != nil) {
-        TiThreadPerformOnMainThread(^{
-            [callback call:[NSArray arrayWithObjects: data, nil] thisObject:self];
-        }, YES);
+//        TiThreadPerformOnMainThread(^{
+            [callback call:[NSArray arrayWithObjects: [NSDictionary dictionaryWithObject:eventData forKey:@"data"], nil] thisObject:self];
+//        }, YES);
     }
 }
 
 #else
 
+-(id)hasListener:(NSString*)eventName {
+    return NUMBOOL([self _hasListeners:eventName]);
+}
+
 -(void)invokeCallback:(NSString*)eventName withData:(NSDictionary*)eventData {
     if ([self _hasListeners:eventName]) {
+//        NSLog(@"[BLE-SENSORS] Firing event %@", eventName);
         [self fireEvent:eventName withObject:[NSDictionary dictionaryWithObject:eventData forKey:@"data"]];
     }
 }
@@ -286,7 +299,7 @@
     YMSCBPeripheral *peripheral = [centralManager findPeripheralByUUID: nsuuid];
     BOOL connected = [peripheral isConnected];
     
-    NSLog(@"[BLE-SENSORS] Device connection: %@", uuid, connected);
+    NSLog(@"[BLE-SENSORS] Device %@ connection status is %d", uuid, connected);
     
     return NUMBOOL(connected);
 }
@@ -336,9 +349,30 @@
     
     DEACentralManager *centralManager = [DEACentralManager sharedService];
     NSUUID * nsuuid = [[NSUUID UUID] initWithUUIDString:uuid];
-    [[centralManager findPeripheralByUUID: nsuuid] cancelConnection];
+    YMSCBPeripheral *peripheral = [centralManager findPeripheralByUUID: nsuuid];
     
-    NSLog(@"[BLE-SENSORS] Disconnected from device: %@", uuid);
+    if ([peripheral isConnected] == YES) {
+        // Force disconnect of peripherals
+        if ([peripheral isKindOfClass:[BLEMultispread class]]) {
+            BLEMultispread *multispread = (BLEMultispread *)peripheral;
+            [multispread.spreader disableNotifications];
+            
+#if KILL_CONNECTION
+            [multispread.spreader updateCharacteristics:@{ @"killConnection": @"true" }];
+#else
+            [peripheral cancelConnection];
+#endif
+            
+        } else if ([peripheral isKindOfClass:[BLETaskItSerial class]]) {
+            BLETaskItSerial *taskit = (BLETaskItSerial *)peripheral;
+            [taskit.serial disableNotifications];
+            
+            // Now cancel.
+            [peripheral cancelConnection];
+        }
+        
+        NSLog(@"[BLE-SENSORS] Disconnecting from device: %@", uuid);
+    }
 }
 
 -(void)update:(NSArray *)args {
@@ -477,7 +511,10 @@
     for (CBService *service in peripheral.services) {
         YMSCBService *ys = [yp findService:service];
         if ([ys isKindOfClass:[BLEBaseService class]]) {
+            NSLog(@"[BLE-SENSORS] Configure observer for %@ with %@", peripheral, service);
+
             BLEBaseService *bs = (BLEBaseService *)ys;
+            baseService = bs;
             [bs addObserver:self
                  forKeyPath:@"sensorValues"
                     options:NSKeyValueObservingOptionNew
@@ -491,17 +528,28 @@
 }
 
 -(void)deconfigureObserverForPeripheral:(CBPeripheral *)peripheral {
+    NSLog(@"[BLE-SENSORS] Deconfigure observer for %@", peripheral);
+    BLEBaseService *bs = baseService;
+    if (bs != nil) {
+        [bs removeObserver:self forKeyPath:@"calibrationValues"];
+        [bs removeObserver:self forKeyPath:@"sensorValues"];
+//        [bs disableNotifications];
+        baseService = nil;
+    }
+    /*
     DEACentralManager *centralManager = [DEACentralManager sharedService];
     YMSCBPeripheral *yp = [centralManager findPeripheral:peripheral];
     for (CBService *service in peripheral.services) {
         YMSCBService *ys = [yp findService:service];
         if ([ys isKindOfClass:[BLEBaseService class]]) {
             BLEBaseService *bs = (BLEBaseService *)ys;
+            NSLog(@"[BLE-SENSORS] Deconfigure observer for %@ with %@", peripheral, service);
             [bs removeObserver:self forKeyPath:@"calibrationValues"];
             [bs removeObserver:self forKeyPath:@"sensorValues"];
             [bs disableNotifications];
         }
     }
+     */
 }
 
 -(void)centralManagerDidUpdateState:(CBCentralManager *)central {

@@ -36,6 +36,8 @@
 -(void)removeAllListeners:(id)no_args;
 #endif
 
+-(id)hasListener:(NSString*)eventName;
+
 -(void)startDiscovery:(id)no_args;
 -(void)cancelDiscovery:(id)no_args;
 

@@ -15,4 +15,4 @@ name: bt-ble-sensors
 moduleid: com.sws.sensors.bt.ble
 guid: 049d9453-b617-471f-912a-835a21fb0542
 platform: iphone
-minsdk: 3.5.0.GA
+minsdk: 5.1.2.GA
