@@ -14,7 +14,7 @@ module_defaults = {
 	'description':'Bluetooth Low Energy Sensors',
 	'author': 'Jason Waring',
 	'license' : 'Commercial',
-	'copyright' : 'Copyright (c) %s by SoftWaring Solutions' % str(date.today().year),
+	'copyright' : 'Copyright (c) %s by Equenda Software' % str(date.today().year),
 }
 module_license_default = "Commercial"
 
@@ -52,7 +52,7 @@ def generate_doc(config):
 	if not os.path.exists(docdir):
 		docdir = os.path.join(cwd,'..','documentation')
 	if not os.path.exists(docdir):
-		print "Couldn't find documentation file at: %s" % docdir
+#		print "Couldn't find documentation file at: %s" % docdir
 		return None
 
 	try:
@@ -69,9 +69,9 @@ def generate_doc(config):
 	return documentation
 
 def compile_js(manifest,config):
-	js_file = os.path.join(cwd,'assets','com.sws.sensors.bt.ble.js')
+	js_file = os.path.join(cwd,'assets','com.equenda.inmotion.sensors.ble.js')
 	if not os.path.exists(js_file):
-		js_file = os.path.join(cwd,'..','assets','com.sws.sensors.bt.ble.js')
+		js_file = os.path.join(cwd,'..','assets','com.equenda.inmotion.sensors.ble.js')
 	if not os.path.exists(js_file): return
 
 	from compiler import Compiler
@@ -101,7 +101,7 @@ def compile_js(manifest,config):
 
 	from tools import splice_code
 
-	assets_router = os.path.join(cwd,'Classes','ComSwsSensorsBtBleModuleAssets.m')
+	assets_router = os.path.join(cwd,'Classes','BtBleSensorsModuleAssets.m')
 	splice_code(assets_router, 'asset', root_asset_content)
 	splice_code(assets_router, 'resolve_asset', module_asset_content)
 
@@ -111,7 +111,7 @@ def compile_js(manifest,config):
 	exports.close()
 
 def die(msg):
-	print msg
+	print(msg)
 	sys.exit(1)
 
 def warn(msg):

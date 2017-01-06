@@ -1,3 +1,12 @@
 .DS_Store
 iphone/build
-iphone/com.sws.sensors.*.zip
+iphone/com.equenda.*.zip
+android/build
+android/com.equenda.*.zip
+android/java-sources.txt
+android/Resources
+android/dist
+android/bin
+android/.idea
+android/.settings
+android/.project

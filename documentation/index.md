@@ -8,7 +8,7 @@ TODO: Enter your module description here
 
 To access this module from JavaScript, you would do the following:
 
-    var bt_ble_sensors = require("com.sws.sensors.bt.ble");
+    var bt_ble_sensors = require("com.equenda.inmotion.sensors.ble");
 
 The bt_ble_sensors variable is a reference to the Module object.
 
