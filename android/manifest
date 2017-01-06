@@ -1,0 +1,13 @@
+version: 1.0.1
+apiversion: 3
+architectures: armeabi-v7a x86
+description: inMotion Tester
+author: Jason Waring
+license: Commercial
+copyright: Copyright (c) 2016 by Equenda Software
+
+name: bt-ble-sensors
+moduleid: com.equenda.inmotion.sensors.ble
+guid: 5ff42802-cdbb-4889-8769-3b1c811df7f0
+platform: android
+minsdk: 6.0.0.GA

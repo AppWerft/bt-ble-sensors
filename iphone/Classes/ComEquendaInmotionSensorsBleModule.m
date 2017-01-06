@@ -5,7 +5,7 @@
  * Copyright (c) 2015 SoftWaring Solutions. All rights reserved.
  */
 
-#import "ComSwsSensorsBtBleModule.h"
+#import "ComEquendaInmotionSensorsBleModule.h"
 #include "DEASensorTag.h"
 #include "BLEHeartRate.h"
 #include "BLEHeartRateService.h"
@@ -31,11 +31,11 @@
 #define DATA_EVENT @"bluetooth-le:data"
 #endif
 
-@interface ComSwsSensorsBtBleModule ()
+@interface ComEquendaInmotionSensorsBleModule ()
 -(NSString *)currentTimestamp;
 @end
 
-@implementation ComSwsSensorsBtBleModule
+@implementation ComEquendaInmotionSensorsBleModule
 BLEBaseService *baseService;
 
 #pragma mark Internal
@@ -45,7 +45,7 @@ BLEBaseService *baseService;
 }
 
 -(NSString*)moduleId {
-    return @"com.sws.sensors.bt.ble";
+    return @"com.equenda.inmotion.sensors.ble";
 }
 
 #pragma mark Lifecycle
@@ -230,7 +230,7 @@ BLEBaseService *baseService;
 -(id)hasListener:(NSString*)eventName {
     return NUMBOOL([self _hasListeners:eventName]);
 }
-
+ 
 -(void)invokeCallback:(NSString*)eventName withData:(NSDictionary*)eventData {
     if ([self _hasListeners:eventName]) {
 //        NSLog(@"[BLE-SENSORS] Firing event %@", eventName);
@@ -256,7 +256,7 @@ BLEBaseService *baseService;
     [self invokeCallback:SCANNING_EVENT withData:scanData];
     
     DEACentralManager *centralManager = [DEACentralManager sharedService];
-    ComSwsSensorsBtBleModule *this = self;
+    ComEquendaInmotionSensorsBleModule *this = self;
     
     [centralManager startScanWithCallback:^(CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI, NSString *inferredType) {
         if (([peripheral identifier] != nil) && (inferredType != nil)) {
@@ -299,7 +299,7 @@ BLEBaseService *baseService;
     YMSCBPeripheral *peripheral = [centralManager findPeripheralByUUID: nsuuid];
     BOOL connected = [peripheral isConnected];
     
-    NSLog(@"[BLE-SENSORS] Device %@ connection status is %d", uuid, connected);
+//    NSLog(@"[BLE-SENSORS] Device %@ connection status is %d", uuid, connected);
     
     return NUMBOOL(connected);
 }
@@ -457,6 +457,7 @@ BLEBaseService *baseService;
     NSMutableDictionary *data = [NSMutableDictionary dictionary];
     [data setObject: [self currentTimestamp] forKey:@"timestamp"];
     [data setObject: uuid forKey:@"address"];
+    [data setObject: @"deviceInfo" forKey:@"type"];
     [data setObject: @"deviceInfo" forKey:@"service"];
     [data setObject: values forKey:@"values"];
     
@@ -487,7 +488,8 @@ BLEBaseService *baseService;
             [data setObject: change[@"new"] forKey:@"values"];
             [self invokeCallback:DATA_EVENT withData:data];
         }
-        
+
+        /*
     } else if ([keyPath isEqualToString:@"calibrationValues"]) {
         if ([object isKindOfClass:[BLEBaseService class]]) {
             BLEBaseService *bs = (BLEBaseService *)object;
@@ -502,6 +504,38 @@ BLEBaseService *baseService;
             [data setObject: change[@"new"] forKey:@"values"];
             [self invokeCallback:DATA_EVENT withData:data];
         }
+        
+    } else if ([keyPath isEqualToString:@"driveWheelValues"]) {
+        if ([object isKindOfClass:[BLEBaseService class]]) {
+            BLEBaseService *bs = (BLEBaseService *)object;
+            YMSCBPeripheral *parent = [bs parent];
+            
+            NSMutableDictionary *data = [NSMutableDictionary dictionary];
+            [data setObject: [self currentTimestamp] forKey:@"timestamp"];
+            [data setObject: [parent name] forKey:@"name"];
+            [data setObject: [[[parent cbPeripheral] identifier] UUIDString] forKey:@"address"];
+            [data setObject: [bs name] forKey:@"service"];
+            [data setObject: @"driveWheel" forKey:@"type"];
+            [data setObject: change[@"new"] forKey:@"values"];
+            [self invokeCallback:DATA_EVENT withData:data];
+        }
+         */
+
+    } else if ([keyPath isEqualToString:@"commandResponses"]) {
+        if ([object isKindOfClass:[BLEBaseService class]]) {
+            BLEBaseService *bs = (BLEBaseService *)object;
+            YMSCBPeripheral *parent = [bs parent];
+            
+            NSMutableDictionary *data = [NSMutableDictionary dictionary];
+            [data setObject: [self currentTimestamp] forKey:@"timestamp"];
+            [data setObject: [parent name] forKey:@"name"];
+            [data setObject: [[[parent cbPeripheral] identifier] UUIDString] forKey:@"address"];
+            [data setObject: [bs name] forKey:@"service"];
+            [data setObject: @"commandResponse" forKey:@"type"];
+            [data setObject: change[@"new"] forKey:@"values"];
+            [self invokeCallback:DATA_EVENT withData:data];
+        }
+
     }
 }
 
@@ -519,10 +553,21 @@ BLEBaseService *baseService;
                  forKeyPath:@"sensorValues"
                     options:NSKeyValueObservingOptionNew
                     context:NULL];
+            /*
             [bs addObserver:self
                  forKeyPath:@"calibrationValues"
                     options:NSKeyValueObservingOptionNew
                     context:NULL];
+            [bs addObserver:self
+                 forKeyPath:@"driveWheelValues"
+                    options:NSKeyValueObservingOptionNew
+                    context:NULL];
+             */
+            [bs addObserver:self
+                 forKeyPath:@"commandResponses"
+                    options:NSKeyValueObservingOptionNew
+                    context:NULL];
+
         }
     }
 }
@@ -531,7 +576,9 @@ BLEBaseService *baseService;
     NSLog(@"[BLE-SENSORS] Deconfigure observer for %@", peripheral);
     BLEBaseService *bs = baseService;
     if (bs != nil) {
-        [bs removeObserver:self forKeyPath:@"calibrationValues"];
+        [bs removeObserver:self forKeyPath:@"commandResponses"];
+//        [bs removeObserver:self forKeyPath:@"driveWheelValues"];
+//        [bs removeObserver:self forKeyPath:@"calibrationValues"];
         [bs removeObserver:self forKeyPath:@"sensorValues"];
 //        [bs disableNotifications];
         baseService = nil;
